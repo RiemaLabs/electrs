@@ -375,7 +375,7 @@ impl Daemon {
             let ibd_done = if network.is_regtest() {
                 info.blocks == info.headers
             } else {
-                !info.initialblockdownload.unwrap_or(false)
+                info.blocks == info.headers
             };
 
             if mempool.loaded && ibd_done && info.blocks == info.headers {
